@@ -2,9 +2,9 @@ var express = require("express");
 var router = express.Router();
 
 // var masterjenisasetRouter = require("../modules/aset/routes/masterjenisasetRoutes");
-// var adminRouter = require("../modules/admin/routes/adminRoutes");
+var userRouter = require("../modules/user/routes/userRoutes");
 
 // router.use("/aset", masterjenisasetRouter);
-// router.use("/admin", adminRouter);
+router.use("/user", userRouter);
 
 module.exports = router;
