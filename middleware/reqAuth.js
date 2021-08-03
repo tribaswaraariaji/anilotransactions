@@ -6,15 +6,6 @@ const Validator = require("fastest-validator");
 const v = new Validator();
 
 module.exports.reqAuth = (req, res, next) => {
-  // console.log({"form":req.body});
-  // passport.authenticate("jwt", { session: false }, (err, user, info) => {
-  //   if (!admin) {
-  //     return responseFormatter.error(res, null, "Unauthorized", 401);
-  //   } else {
-  //     req.admin = admin;
-  //     next();
-  //   }
-  // })(req, res, next);
   try{
     const {authorization} = req.headers;
     const schema = {
@@ -33,7 +24,7 @@ module.exports.reqAuth = (req, res, next) => {
       if(err){
         return responseFormatter.error(res,null,err.message,401);
       }
-      req.admin = decoded.admin;
+      req.user = decoded.user;
       return next();
     });
   } catch (error){

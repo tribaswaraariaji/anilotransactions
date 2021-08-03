@@ -39,8 +39,6 @@ const userController = {
   
       if (username && password) {
         let user = await userService.getUserByUsername(username);
-        
-        // console.log({admin})
         if (!user) {
           res.status(400).json({ message: "Username Salah" });
         }
